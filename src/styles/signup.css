@@ -1,0 +1,234 @@
+:root {
+	--back: #0e0e0e;
+	--universal: #ffffff;
+	--primary: #fca311;
+	--secondary: #dcc9aa;
+  }
+  /* resetting browser's default styles */
+  body {
+	font-size: 15px;
+  }
+  body,
+  p,
+  a {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+  }
+  /* basic styles */
+  body {
+	background: var(--back);
+	overflow-x: hidden;
+	color: var(--universal);
+  }
+#Sname, #Semail, #Skey {
+	background: none;
+	border: 1px solid var(--secondary);
+	border-radius: 10px;
+	display: inline-block;
+	outline: none;
+	font-family: "lato small";
+	text-indent: 10px;
+  }
+  
+  input:-webkit-autofill {
+	-webkit-text-fill-color: white !important;
+	  transition: background-color 5000s ease-in-out 0s;
+  }
+  h2 {
+	font-size: 2em;
+  }
+  p {
+	font-size: 0.8em;
+  }
+  label {
+	font-size: 1em;
+	margin-bottom: 15px;
+	font-family: "lora";
+  }
+  .style-input:focus {
+	box-shadow: 0 0 5px rgba(194, 215, 218, 0.5);
+  }
+  
+  /* fonts */
+  @font-face {
+	font-family: "lato bold";
+	src: url(../assets/fonts/Lato-Bold.ttf);
+  }
+  @font-face {
+	font-family: "lato";
+	src: url(../assets/fonts/Lato-Regular.ttf);
+  }
+  @font-face {
+	font-family: "lato small";
+	src: url(../assets/fonts/Lato-Light.ttf);
+  }
+  @font-face {
+	font-family: "lato thin";
+	src: url(../assets/fonts/Lato-Thin.ttf);
+  }
+  @font-face {
+	font-family: "josefin sans";
+	src: url(../assets/fonts/JosefinSans-VariableFont_wght.ttf);
+  }
+  @font-face {
+	font-family: "lora";
+	src: url(../assets/fonts/Lora-VariableFont_wght.ttf);
+  }
+  
+  /* small screen styles */
+  .alert {
+	position: absolute;
+	font-family: josefin sans;
+	font-size: 0.8em;
+	top: 235px;
+	padding: 10px;
+	background-color: var(--primary);
+	color: black;
+	text-align: center;
+	z-index: 999;
+	width: 200px;
+	border-radius: 15px;
+	opacity: 0;
+	transform: translateY(-20px);
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  .alert.hide {
+	display: none;
+  }
+  
+  .alert.show {
+	opacity: 1;
+  transform: translateY(0);
+  }
+  
+  .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	margin-bottom: 150px;
+  }
+  @keyframes slideInFromLeft {
+	0% {
+	  transform: translateX(100%);
+	}
+	100% {
+	  transform: translateX(0);
+	}
+  }
+  form[name="signUpForm"] {
+	width: 60%;
+	max-width: 400px;
+	margin: 20px auto;
+	padding: 60px 20px 0 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+	animation: 0.5s ease-out 0s 1 slideInFromLeft;
+  }
+  .container h2 {
+	margin-top: 150px;
+	font-family: josefin sans;
+	font-weight: 500;
+  }
+  .in {
+	color: var(--primary);
+  }
+  .container p {
+	font-family: lora;
+	margin-bottom: 30px;
+  }
+  .input {
+	display: flex;
+	flex-direction: column;
+  }
+  @keyframes shake {
+	0%, 100% { transform: translateX(0); }
+	10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+	20%, 40%, 60%, 80% { transform: translateX(10px); }
+  }
+  .input.err input{
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  } 
+  
+  .input .err{
+	color: red; 
+	margin: -15px 0 20px 0;
+	font-family: 'lato small';
+	font-size: 0.8em;
+  } 
+  
+  #Semail,
+  #Sname {
+	margin-bottom: 30px;
+	height: 45px;
+	color: var(--universal);
+	text-indent: 10px;
+  }
+  #Skey {
+	text-indent: 10px;
+	margin-bottom: 25px;
+	height: 45px;
+	color: var(--universal);
+  }
+  form button {
+	width: 100%;
+	border-style: none;
+	margin: 50px auto;
+	padding: 10px;
+	background: var(--secondary);
+	font-family: "lato bold";
+	border-radius: 40px;
+	font-size: 1em;
+	color: black;
+  }
+  form button:hover {
+	background: var(--universal);
+	cursor: pointer;
+  }
+  p a {
+	text-decoration: underline;
+	color: var(--universal);
+  }
+  p a:hover {
+	color: var(--secondary);
+  }
+  form p {
+	font-family: "lato";
+	text-align: center;
+  }
+  
+  /* tablet screens */
+  
+  @media screen and (min-width: 700px) {
+	body {
+	  font-size: 16px;
+	}
+  }
+  
+  /* laptop screens */
+  
+  @media screen and (min-width: 960px) {
+	body {
+	  font-size: 17px;
+	}
+	.alert{
+	  top: 270px;
+	}
+	.container h2 {
+	  margin-top: 180px;
+	}
+  }
+  
+  /* desktop screens */
+  
+  @media screen and (min-width: 1200px) {
+	body {
+	  font-size: 18px;
+	}
+	.alert{
+	  top: 275px;
+	}
+  }
+  
