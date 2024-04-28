@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const AdminCreateBlog = () => {
+const AdminCreateBlog = ({ articleId, onArticleChange }) => {
   const [title, setTitle] = useState('');
   const [photo, setPhoto] = useState('');
   const [description, setDescription] = useState('');
   const [error, setError] = useState({});
   const [alert, setAlert] = useState('');
   const [photoURL, setPhotoURL] = useState('');
+  const [photoLoaded, setPhotoLoaded] = useState(false);
 
   useEffect(() => {
     if (alert) {
@@ -17,6 +18,27 @@ const AdminCreateBlog = () => {
       return () => clearTimeout(timer);
     }
   }, [alert]);
+
+  useEffect(() => {
+	if (articleId) {
+	  const fetchBlog = async () => {
+		const response = await fetch(`https://mb-be-norbert.onrender.com/articles/${articleId}`);
+		const data = await response.json();
+		// console.log(data.Article.image)
+		setTitle(data.Article.title || '');
+		setDescription(data.Article.content || '');
+		setPhotoURL(data.Article.image || '');
+	  };
+  
+	  fetchBlog();
+	} else {
+	  // reset form fields
+	  setTitle('');
+	  setDescription('');
+	  setPhoto('');
+	  setPhotoURL('');
+	}
+  }, [articleId]);
 
 //   console.log(title, photo, description)
 
@@ -58,9 +80,13 @@ const AdminCreateBlog = () => {
       formData.append("content", description);
       formData.append("image", photo);
 
-      const url = "https://mb-be-norbert.onrender.com/articles";
+	  const method = articleId ? 'PUT' : 'POST';
+
+      const url = articleId
+	  ? `https://mb-be-norbert.onrender.com/articles/${articleId}`
+	  : "https://mb-be-norbert.onrender.com/articles";
       const response = await fetch(url, {
-        method: "POST",
+        method: method,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -76,6 +102,7 @@ const AdminCreateBlog = () => {
       setTitle('');
       setPhoto('');
       setDescription('');
+	  onArticleChange();
     } catch (error) {
       setAlert(error.message);
     }
@@ -108,7 +135,9 @@ const AdminCreateBlog = () => {
             id="current-image-display"
             src={photoURL}
             alt="CurrentImage"
-            style={{ maxWidth: '100px', display: photo ? 'block' : 'none' }}
+            // style={{ maxWidth: '100px', display: photo ? 'block' : 'none' }}
+			style={{ maxWidth: '100px', display: photoLoaded ? 'block' : 'none' }}
+  onLoad={() => setPhotoLoaded(true)}
           /><br />
           <input
             type="file"

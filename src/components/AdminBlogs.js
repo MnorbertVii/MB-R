@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as icons from '../assets/images';
 
-const AdminBlogs = () => {
+const AdminBlogs = ({ onEdit }) => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const AdminBlogs = () => {
                     <img src={icons.Eye} alt="" />
                   </span>
                 </a>
-                <a href="#.">
+                <a href="#." onClick={() => onEdit(blog._id)}>
                   <span className="action-icons" id="edit-icon">
                     <img src={icons.Edit} alt="" />
                   </span>
