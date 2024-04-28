@@ -32,7 +32,7 @@ const AdminCreateBlog = ({ articleId, onArticleChange }) => {
   
 	  fetchBlog();
 	} else {
-	  // reset form fields
+
 	  setTitle('');
 	  setDescription('');
 	  setPhoto('');
@@ -97,6 +97,10 @@ const AdminCreateBlog = ({ articleId, onArticleChange }) => {
       if (!response.ok) {
         throw new Error(data.message);
       }
+      
+
+	  
+
     //   console.log(data.message);
       setAlert(data.message);
       setTitle('');
@@ -112,7 +116,7 @@ const AdminCreateBlog = ({ articleId, onArticleChange }) => {
     <section id="new-blog">
       <div className="header">
 	  <div className={`alert ${alert ? 'show' : 'hide'}`}>{alert}</div>
-        <h2>Create Your Blog Post</h2>
+        <h2 className="h2">Create Your Blog Post</h2>
       </div>
       
       <form name="createForm" onSubmit={handleSubmit}>

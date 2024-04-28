@@ -1,19 +1,4 @@
-:root {
-	--back: #0e0e0e;
-	--universal: #ffffff;
-	--primary: #fca311;
-	--secondary: #dcc9aa;
-  }
-  
-  /* resetting browser's default styles */
-  * {
-	font-size: 15px;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	box-sizing: border-box;
-  }
-  li {
+li {
 	list-style-type: none;
   }
   nav ul li a {
@@ -23,19 +8,12 @@
 	font-size: 1.2em;
   }
   h3 {
-	font-size: 1.2em;
-  }
-  h4 {
 	font-size: 1em;
   }
-  
-  /* basic styles */
-  body {
-	background: var(--back);
-	overflow-x: hidden;
-	color: var(--universal);
+  h4 {
+	font-size: 0.8em;
   }
-  /* fonts */
+
   @font-face {
 	font-family: "lato bold";
 	src: url(../assets/fonts/Lato-Bold.ttf);
@@ -60,62 +38,63 @@
 	font-family: "josefin sans";
 	src: url(../assets/fonts/JosefinSans-VariableFont_wght.ttf);
   }
+
   
-  /* Mobile-first styles */
-  
-  nav {
+#adminNav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100px;
+	width: 150px;
 	background-color: black;
 	padding-top: 40px;
 	height: 100%;
 	font-family: "lato";
 	text-transform: uppercase;
   }
-  
-  a {
+
+  li a{
+	color: white;
+  }
+
+  .style-link a{
 	color: white;
 	text-decoration: none;
 	display: block;
 	padding: 10px;
 	margin-bottom: 30px;
   }
-  nav ul li :hover {
+
+  .style-link a:hover {
+	cursor: pointer;
 	border-bottom: 1px solid var(--primary);
   }
-  
-  main {
+
+  .adminMain {
 	margin-left: 100px;
 	padding: 20px;
   }
-  .users{
-	margin-left: 25px;
-  }
-  
+
   #messages {
-	/* display: grid;
-	grid-template-columns: repeat(9, 1fr); */
 	display: flex;
 	flex-direction: column;
   }
   .title {
-	/* margin-left: -50px; */
-	/* grid-column: 4/10; */
 	display: flex;
 	justify-content: center;
   }
-  h2{
+  .h2 {
 	font-family: josefin sans;
-	font-weight: 700;
-	margin-bottom: 40px;
+	font-weight: 400;
+	margin-right: 20px;
+	margin-bottom: 30px;
 	padding-bottom: 10px;
-	border-bottom: 2px solid var(--secondary);
+	border-bottom: 1px solid var(--secondary);
+  }
+  .users {
+	margin-left: 90px;
   }
   .contents {
-	grid-column: 1/10;
-	margin-left: 25px;
+	grid-column: 2/10;
   }
   .contents h3 {
 	font-family: 'lora';
@@ -129,7 +108,7 @@
 	font-family: "lato small";
 	margin-bottom: 25px;
   }
-  .header {
+  .header, .header1 {
 	margin-top: 100px;
 	display: flex;
 	justify-content: center;
@@ -148,48 +127,44 @@
 	word-wrap: break-word;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	max-width: 100px;
+	max-width: 120px;
   }
   label {
 	font-family: "lora";
   }
-
-  
+  .blog-img {
+	max-width: 100px;
+	max-height: 100px;
+  }
 #title, #photo, #description {
-	background: var(--back);
-	color: white;
-	outline: none;
-	border-style: none;
-	border: 1px solid var(--secondary);
-	margin-top: 20px;
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 10px;
-	border-radius: 10px;
-  }
+  background: var(--back);
+  color: white;
+  outline: none;
+  border-style: none;
+  border: 1px solid var(--secondary);
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
 
-  #description {
-	height: 200px;
-  }
-  
-  button[type="submit"] {
-	width: 100%;
-	height: 40px;
-	padding: 5px;
-	margin-bottom: 40px;
-	background-color: var(--secondary);
-	color: black;
-	border-style: none;
-	border-radius: 5px;
-	font-size: 1.1em;
-	font-family: 'lato bold';
-  }
-  button[type="submit"]:hover {
-	background: white;
-	cursor: pointer;
-  }
-  
-  @keyframes shake {
+#create-btn {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 40px;
+  background-color: var(--secondary);
+  color: black;
+  border-style: none;
+  border-radius: 5px;
+  font-family: 'lato bold';
+}
+#create-btn:hover {
+  background: white;
+  cursor: pointer;
+}
+
+@keyframes shake {
 	0%, 100% { transform: translateX(0); }
 	10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
 	20%, 40%, 60%, 80% { transform: translateX(10px); }
@@ -201,18 +176,17 @@
   
   .input .err{
 	color: red; 
-	margin: 10px 0;
+	margin: -15px 0 20px 0;
 	font-family: 'lato small';
 	font-size: 0.8em;
   } 
 
   #new-blog{
 	position: relative;
+	/* max-width: 500px; */
   }
   
-  
   .alert {
-
 	position: absolute;
 	top: 0;
 	left: 300px;
@@ -266,38 +240,53 @@
   .custom-file-input:active::before {
 	background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
-
   
+
+
   @media screen and (min-width: 700px) {
 	body {
 	  font-size: 16px;
 	}
-	nav {
+	#adminNav {
 	  width: 200px;
 	  padding-left: 40px;
 	}
-	main {
+	.adminMain {
 	  margin-left: 220px;
 	}
   }
+  
   .blog-img {
-	max-width: 100px;
-	max-height: 100px;
+	max-width: 120px;
+	max-height: 120px;
   }
   td {
 	width: 120px;
   }
-  form {
+  form[name="createForm"] {
+	margin-left: 50px;
 	width: 80%;
   }
+
   @media screen and (min-width: 960px) {
 	body {
 	  font-size: 17px;
 	}
+	.users {
+		margin-left: 50px;
+	  }
+
+	  .contents {
+		grid-column: 2/10;
+		margin-left: -50px;
+	  }
 	.blog-img {
 	  max-width: 150px;
 	  max-height: 150px;
 	}
+	table {
+		width: 100%;
+	  }
 	td {
 	  max-width: 200px;
 	}
@@ -305,36 +294,49 @@
 	  display: inline;
 	}
 	.action-icons img {
-	  width: 12%;
-	  white-space: nowrap;
+	  width: 20%;
+	  margin-right: 5px;
 	}
-	form {
-	  width: 60%;
+	form[name="createForm"] {
+	  width: 50%;
+	}
+	#create-btn{
+		height: 40px;
 	}
   }
+
   @media screen and (min-width: 1200px){
-	  body{
-		  font-size: 18px;
+	body{
+		font-size: 18px;
+	}
+	.title,.header,.header1{
+		justify-content: flex-start;
+	}
+	.adminMain {
+		margin-left: 300px;
+	  }
+	  .h2{
+		margin-left: 50px;
 	  }
 
-	  .title,.header{
-		  justify-content: flex-start;
-	  }
-	  main {
-		  margin-left: 300px;
-		}
-		table{
-			width: 100%;
-		}
-		#blogs{
-			margin-left: -1px;
-		}
-	  td {
-		max-width: 100%;
-	  }
-	  form{
-		  width: 50%;
+	  .header{
+		margin-left: 300px;
 	  }
 
-	
-  }
+	  .contents {
+		grid-column: 2/10;
+		margin-left: 50px;
+	  }
+
+	table{
+		margin-left: -250px;
+	}
+    td {
+      max-width: 100%;
+    }
+	form{
+		width: 50%;
+	}
+
+}
+

@@ -19,7 +19,7 @@ const AdminUsers = () => {
   return (
     <section id="users">
       <div className="title">
-        <h2>List of Users</h2>
+        <h2 className="h2">List of Users</h2>
       </div>
       <div className="users" id="users-container">
         {users.map((user) => (

@@ -33,8 +33,8 @@ const AdminBlogs = ({ onEdit }) => {
 
   return (
     <section id="blogs">
-      <div className="header">
-        <h2>Manage blogs</h2>
+      <div className="header1">
+        <h2 className="h2">Manage blogs</h2>
       </div>
       <table border="1">
         <thead>

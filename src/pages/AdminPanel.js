@@ -17,7 +17,7 @@ const AdminPanel = () => {
   return (
     <div>
       <AdminNavBar />
-	  <main>
+	  <main className="adminMain">
 	  <AdminUsers />
 	  <AdminMessages />
 	  <AdminBlogs onEdit={handleEdit} />

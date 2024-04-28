@@ -1,12 +1,21 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 export default function AdminNavBar() {
+  const navigate = useNavigate();
+
+  const handleLogout = (event) => {
+    event.preventDefault();
+    localStorage.removeItem('token');
+    navigate('/');
+  }
+
   return (
-    <nav>
+    <nav id='adminNav'>
       <ul>
-        <li>
-          <Link to="/logout">
+        <li className="style-link">
+          <RouterLink to='/' onClick={handleLogout}>
             <svg
               width="20"
               height="20"
@@ -23,25 +32,25 @@ export default function AdminNavBar() {
               />
             </svg>
             Logout
-          </Link>
+          </RouterLink>
         </li>
-        <li>
-          <Link to="users" spy={true} smooth={true} offset={-100}>Users</Link>
+        <li className="style-link">
+          <ScrollLink to="users" spy={true} smooth={true} offset={-100}>Users</ScrollLink>
         </li>
-        <li>
-          <Link to="messages" spy={true} smooth={true} offset={-30}>Messages</Link>
+        <li className="style-link">
+          <ScrollLink to="messages" spy={true} smooth={true} offset={-30}>Messages</ScrollLink>
         </li>
-        <li>
-          <Link to="blogs" spy={true} smooth={true}>Blogs Panel</Link>
+        <li className="style-link">
+          <ScrollLink to="blogs" spy={true} smooth={true}>Blogs Panel</ScrollLink>
         </li>
-        <li>
-          <Link to="new-blog" spy={true} smooth={true}>Create blog</Link>
+        <li className="style-link">
+          <ScrollLink to="new-blog" spy={true} smooth={true}>Create blog</ScrollLink>
         </li>
-        <li>
-          <Link to="/">Back Home</Link>
+        <li className="style-link">
+          <RouterLink to="/">Back Home</RouterLink>
         </li>
-        <li>
-          <Link to="/admin/settings">Settings</Link>
+        <li className="style-link">
+          <ScrollLink to="settings">Settings</ScrollLink>
         </li>
       </ul>
     </nav>
