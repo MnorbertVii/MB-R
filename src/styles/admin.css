@@ -78,7 +78,7 @@ li {
 	display: flex;
 	flex-direction: column;
   }
-  .title {
+  .title1 {
 	display: flex;
 	justify-content: center;
   }
@@ -108,7 +108,7 @@ li {
 	font-family: "lato small";
 	margin-bottom: 25px;
   }
-  .header, .header1 {
+  .header2, .header1 {
 	margin-top: 100px;
 	display: flex;
 	justify-content: center;
@@ -309,7 +309,7 @@ li {
 	body{
 		font-size: 18px;
 	}
-	.title,.header,.header1{
+	.title1,.header2,.header1{
 		justify-content: flex-start;
 	}
 	.adminMain {
@@ -319,7 +319,7 @@ li {
 		margin-left: 50px;
 	  }
 
-	  .header{
+	  .header2{
 		margin-left: 300px;
 	  }
 

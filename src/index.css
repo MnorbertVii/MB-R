@@ -885,6 +885,16 @@
 	.left-side input {
 	  width: 50%;
 	}
+
+	.first-project{
+		width: 70%;
+	}
+
+	#blog-contents {
+		margin-right: -5px;
+	}
+	
+
 	.contact-form {
 	  display: grid;
 	  grid-template-columns: repeat(8, 1fr);

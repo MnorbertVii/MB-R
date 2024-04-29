@@ -19,7 +19,8 @@ import GithubIcon from './Git.svg';
 import Eye from './eye.svg';
 import Edit from './edit.svg';
 import Trash from './trash.svg';
-
+import SendIcon from './Send Icon.svg';
+import Back from './arrow back.svg';
 
 export {
   JavaScript,
@@ -41,6 +42,7 @@ export {
   GithubIcon,
   Eye,
   Trash,
-  Edit
-
+  Edit,
+  SendIcon,
+  Back
 };

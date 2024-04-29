@@ -18,7 +18,7 @@ const AdminUsers = () => {
 
   return (
     <section id="users">
-      <div className="title">
+      <div className="title1">
         <h2 className="h2">List of Users</h2>
       </div>
       <div className="users" id="users-container">

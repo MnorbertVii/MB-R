@@ -114,7 +114,7 @@ const AdminCreateBlog = ({ articleId, onArticleChange }) => {
 
   return (
     <section id="new-blog">
-      <div className="header">
+      <div className="header2">
 	  <div className={`alert ${alert ? 'show' : 'hide'}`}>{alert}</div>
         <h2 className="h2">Create Your Blog Post</h2>
       </div>

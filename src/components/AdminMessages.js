@@ -40,7 +40,7 @@ const AdminMessages = () => {
 
   return (
     <section id="messages">
-      <div className="title">
+      <div className="title1">
         <h2 className="h2">Messages from users</h2>
 
         {messages.length > 0 ? (
