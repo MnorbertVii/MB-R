@@ -40,7 +40,7 @@ function Blogs() {
         .then((response) => response.json())
         .then((data) => {
           if (data) {
-            console.log(data.likedArticle.likes.likesNumber);
+            // console.log(data.likedArticle.likes.likesNumber);
 
             const updatedArticles = articles.map((article) => {
               if (article._id === articleId) {
@@ -73,7 +73,7 @@ function Blogs() {
               <h4>{article.title}</h4>
               <p>
                 {article.content.slice(0, 30)}
-                <Link to={`/BlogPost/${article._id}`} className="style-link">
+                <Link to={`/BlogPost/${article._id}`} className="style-link"> {" "}
                   more
                 </Link>
               </p>

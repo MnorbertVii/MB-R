@@ -5,14 +5,15 @@ import SignInNavBar from '../components/SignInNavBar';
 
 const SignUp = () => {
 
-//create state for form with name, email , password fields in one object 
+
 const [form, setForm] = useState({
   fullName: '',
   email: '',
   password: ''
 });
 
-// console.log(form.name);
+//  console.log(form.fullName);
+
 
 
 const [error, setError] = useState({
@@ -48,7 +49,7 @@ const handleSubmit = async (e) => {
 
   let isValid = true;
 
-  if(!form.name){
+  if(!form.fullName){
     setError(prevStatus => ({ ...prevStatus, fullName: 'Please fill in this field' }));
     isValid = false;
   } else {
@@ -78,38 +79,44 @@ const handleSubmit = async (e) => {
    else {
     setError(prevStatus => ({ ...prevStatus, password: '' }));
   }
-  if (!isValid) {
-    return;
-  }
-  try{
-  
-    const  response = await fetch('https://mb-be-norbert.onrender.com/users/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(form)
-    })
-  
-    const data = await response.json();
-    if (!response.ok) {
-      setAlert(data.message);
-      throw new Error(data.message);
+
+  if (isValid) {
+    
+      // console.log('validations done')
+      try {
+      
+        const  response = await fetch('https://mb-be-norbert.onrender.com/users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(form)
+        })
+      
+        const data = await response.json();
+    
+        console.log(data);
+    
+        if (!response.ok) {
+          setAlert(data.message);
+          throw new Error(data.message);
+        }
+        setAlert(data.message);
+        setForm({
+          name: '',
+          email: '',
+          password: ''
+        });
+        setTimeout(() => {
+          navigate('/signIn');
+        }, 4000);
+      
+      } catch(error){
+        console.log(error);
+      }
     }
-    setAlert(data.message);
-    setForm({
-      name: '',
-      email: '',
-      password: ''
-    });
-    setTimeout(() => {
-      navigate('/signIn');
-    }, 4000);
-  
-  } catch(error){
-    console.log(error);
+   
   }
-}
 
 
   return (
@@ -124,7 +131,7 @@ const handleSubmit = async (e) => {
         <div className="input">
           <label htmlFor="name">what should we call you?</label>
           <input type="text" id="Sname" className="style-input" placeholder="your full name" value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} />
-          <div className="err">{error.name}</div>
+          <div className="err">{error.fullName}</div>
         </div>
         <div className="input">
           <label htmlFor="email">Email</label>
