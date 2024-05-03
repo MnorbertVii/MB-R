@@ -14,7 +14,7 @@ export default function Home () {
             <span className="am">I'm </span>
             <span className="norbert">Norbert NIRUGIRA Muhizi,</span>
           </h2>
-          <p className="leading">An enthusiastic software engineer.</p>
+          <p className="about-me">An enthusiastic software engineer.</p>
         </div>
         <a href="assets/Resume.pdf">
           <button className="resume-btn">Resume</button>

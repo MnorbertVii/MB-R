@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import { Link as RouterLink,useParams,useNavigate } from 'react-router-dom';	
 import { Back } from '../assets/images';
-// import '../styles/SingleBlog.css';
+import '../styles/SingleBlog.css';
 
 function BlogPost() {
 
@@ -9,7 +9,7 @@ function BlogPost() {
 	const [article, setArticle] = useState(null);
 	const [comments, setComments] = useState([]);
 	const [commentInput, setCommentInput] = useState('');
-	const navigate = useNavigate;
+	const navigate = useNavigate();
 	// console.log(commentInput)
   
 	useEffect(() => {
@@ -24,7 +24,7 @@ function BlogPost() {
   
 
 	const handleCommentSubmit = (event) => {
-		// console.log("handleCommentSubmit listened")
+	    // console.log("handleCommentSubmit listened")
 		event.preventDefault();
 
 		const token = localStorage.getItem('token');
@@ -73,7 +73,7 @@ function BlogPost() {
      <RouterLink to={{ pathname: "/", state: { id: "blogs" } }}>
         <img className="back" src={Back} alt="Back" width="40" height="40" />
 		</RouterLink>
-      <div className="container" id="article-container">
+      <div className="signin-container" id="article-container">
         <h3 id="blog-title">{article.title}</h3>
         <img src={article.image} alt="avatar" id="blog-image"/>
         <p className="leading" id="blog-description">
@@ -83,7 +83,7 @@ function BlogPost() {
           <textarea className="style-input" placeholder="comment" value={commentInput} onChange={(e) => setCommentInput(e.target.value)}></textarea>
           <button className="comment-btn" id="send-comment-btn">send</button>
         </form>
-        <div className="comments">
+        <div className="blog-comments">
           <h5>{comments.length} comments</h5>
           {comments.map((comment, index) => (
             <div key={index} id="comments-list">

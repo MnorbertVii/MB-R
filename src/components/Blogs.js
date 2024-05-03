@@ -29,7 +29,8 @@ function Blogs() {
   const addLike = (articleId) => {
     const token = localStorage.getItem("token");
     if (!token) {
-      navigate("/");
+      navigate('/');
+      return;
     } else {
       fetch(`https://mb-be-norbert.onrender.com/article/${articleId}/like`, {
         method: "POST",

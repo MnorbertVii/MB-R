@@ -99,8 +99,6 @@ const AdminCreateBlog = ({ articleId, onArticleChange }) => {
       }
       
 
-	  
-
     //   console.log(data.message);
       setAlert(data.message);
       setTitle('');

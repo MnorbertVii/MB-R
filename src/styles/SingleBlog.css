@@ -89,7 +89,7 @@
 	transform: scale(1.3);
   }
   
-  .container {
+  .signin-container {
 	display: grid;
 	width: 100%;
 	grid-template-columns: repeat(8, 1fr);
@@ -103,14 +103,14 @@
 	font-family: frank;
 	margin: 0 auto 50px auto;
   }
-  .container img {
+  .signin-container img {
 	grid-column: 2/8;
 	width: 100%;
 	height: 100%;
 	border-radius: 5px;
 	margin-bottom: 30px;
   }
-  .container p {
+  .signin-container p {
 	grid-column: 2/8;
 	width: 100%;
 	font-family: lora;
@@ -148,7 +148,7 @@
 	background: var(--universal);
 	cursor: pointer;
   }
-  .comments, #comments-list {
+  .blog-comments, #comments-list {
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
 	width: 100%;
@@ -198,16 +198,13 @@
 	svg {
 	  margin: 70px 0 20px 90px;
 	}
-	.container p {
+	.signin-container p {
 	  grid-column: 2/8;
 	}
-	.container img {
+	.signin-container img {
 	  grid-column: 3/7;
 	}
-	.container p {
-	  grid-column: 2/8;
-	}
-	.comments p {
+	.blog-comments p {
 	  grid-column: 1/9;
 	}
   }
@@ -221,7 +218,7 @@
 	svg {
 	  margin-left: 120px;
 	}
-	.container img {
+	.signin-container img {
 	  width: 400px;
 	  height: 450px;
 	  margin-left: 35px;
@@ -240,10 +237,10 @@
 	svg {
 	  margin-left: 200px;
 	}
-	.container img {
+	.signin-container img {
 	  width: 500px;
 	  height: 520px;
-	  margin-left: 110px;
+	  margin-left: 215px;
 	}
   }
   

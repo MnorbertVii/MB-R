@@ -249,7 +249,7 @@
   .am {
 	font-weight: 300;
   }
-  .leading {
+  .about-me {
 	font-family: poppins;
 	color: var(--secondary);
   }
@@ -873,7 +873,8 @@
 	  margin: auto 150px auto 250px;
 	}
 	.first-blog img {
-	  margin-left: -115px;
+	  margin-left: -150px;
+	  margin-bottom: 20px;
 	}
 	.likes img,
 	.comments img {
