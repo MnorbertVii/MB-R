@@ -186,7 +186,7 @@ li {
 	/* max-width: 500px; */
   }
   
-  .alert {
+  .Alert {
 	position: absolute;
 	top: 0;
 	left: 300px;
@@ -204,12 +204,12 @@ li {
 	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 	visibility: hidden;
   }
-  .alert.hide {
+  .Alert.hide {
 	opacity: 0;
 	visibility: hidden;
   }
   
-  .alert.show {
+  .Alert.show {
 	opacity: 1;
   transform: translateY(0);
   visibility: visible;
